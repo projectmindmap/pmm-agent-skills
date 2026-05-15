@@ -17,77 +17,56 @@ Built following the [AgentSkills.io](https://agentskills.io) open standard.
 
 ## Setup
 
-### 1. Get a PMM MCP Token
+### Claude Code (Desktop) — 1 step
 
-1. Log in to [ProjectMindMap](https://app.projectmindmap.com) (Pro or Enterprise plan required)
-2. Go to **Profile → MCP Tokens**
-3. Click **Generate Token**
-4. Choose ability: `Read only` or `Read + Propose`
-5. Copy the token — it expires in 90 days
-
-> Tokens with `Read only` let agents read project context and search knowledge.  
-> Tokens with `Read + Propose` also let agents submit proposals to your inbox for review.
-
-### 2. Configure MCP in Your Agent
-
-**Claude Code** (`~/.claude/claude.json` or project `.claude/claude.json`):
-```json
-{
-  "mcpServers": {
-    "pmm": {
-      "type": "http",
-      "url": "https://app.projectmindmap.com/mcp/pmm",
-      "headers": {
-        "Authorization": "Bearer YOUR_PMM_TOKEN"
-      }
-    }
-  }
-}
+Open **Settings → Skills → Add Marketplace** and paste:
+```
+https://github.com/projectmindmap/pmm-agent-skills
 ```
 
-**Claude.ai** (Desktop):  
-Settings → Claude Code → MCP Servers → Add Server → paste the URL and token.
+That's it. Claude Code will:
+1. Install the `pmm-risk-manager` and `pmm-executive-reporter` skills
+2. Register the PMM MCP server automatically
+3. Trigger an OAuth login to ProjectMindMap the first time a skill runs
 
-**Cursor / VS Code**:  
-Add to your MCP config file:
+> **Requires**: ProjectMindMap Pro or Enterprise plan.
+
+---
+
+### Claude.ai (web) — 2 steps
+
+OAuth has a known bug in the web interface. Use a Bearer token instead:
+
+**Step 1** — Generate a token in PMM:  
+Profile → MCP Tokens → Generate Token → choose `Read + Propose` → copy it.
+
+**Step 2** — Add the MCP server manually in Claude.ai:  
+Settings → Connectors → Add → HTTP:
+```
+URL:    https://app.projectmindmap.com/mcp/pmm
+Header: Authorization: Bearer YOUR_TOKEN
+```
+
+Then add the skills: download this repo as a ZIP → drag into Claude.ai Project Knowledge.
+
+---
+
+### Other agents (Cursor, Copilot, Gemini CLI, VS Code)
+
+**MCP config**:
 ```json
 {
   "pmm": {
+    "type": "http",
     "url": "https://app.projectmindmap.com/mcp/pmm",
-    "headers": { "Authorization": "Bearer YOUR_PMM_TOKEN" }
+    "headers": { "Authorization": "Bearer YOUR_TOKEN" }
   }
 }
 ```
 
-**OAuth (alternative)**:  
-PMM also supports OAuth for clients that use redirect-based auth (`claude://`, `cursor://`, `vscode://` schemes). Use the discovery URL `https://app.projectmindmap.com/mcp/pmm` — the client will walk you through OAuth automatically.
+Get your token: PMM → Profile → MCP Tokens → Generate Token.
 
-### 3. Install the Skills
-
-**Claude Code** (recommended):  
-Add this repo as a skill plugin in your `.claude/settings.json`:
-```json
-{
-  "plugins": [
-    "https://github.com/projectmindmap/pmm-agent-skills"
-  ]
-}
-```
-
-Or clone locally and reference the path:
-```json
-{
-  "plugins": [
-    "/path/to/pmm-agent-skills"
-  ]
-}
-```
-
-**Claude.ai**:  
-Download this repo as a ZIP → drag into Claude.ai → Project Knowledge.
-
-**Other agents** (Cursor, Copilot, Gemini CLI):  
-Clone this repo and follow the agent's skill/plugin installation docs. Skills follow the AgentSkills.io open format.
+**Skills**: Clone this repo and follow your agent's plugin/skill installation docs. All skills follow the [AgentSkills.io](https://agentskills.io) open format.
 
 ---
 

@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "pmm": {
+      "type": "http",
+      "url": "https://app.projectmindmap.com/mcp/pmm",
+      "oauth": {
+        "authServerMetadataUrl": "https://app.projectmindmap.com/.well-known/oauth-authorization-server"
+      }
+    }
+  }
+}
