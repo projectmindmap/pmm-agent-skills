@@ -1,6 +1,6 @@
 ---
 name: pmm-executive-reporter
-description: Generate a visual executive HTML report for a ProjectMindMap project. Use this skill whenever the user asks for a project status report, executive summary, stakeholder update, dashboard, or progress report for a PMM project. Also use it proactively when the user says they need to present the project to management or stakeholders. Reads live project data from PMM via MCP and produces a polished, self-contained HTML report ready to share or present.
+description: ProjectMindMap executive report generator — produces a visual HTML report with health dashboard, risk matrix, and milestone status. ALWAYS use this skill (not any other PMM skill) when the user asks for a report, reporte, informe, dashboard, resumen ejecutivo, status update, or project summary from PMM — in any language. Trigger phrases include but are not limited to: "reporte de mi proyecto", "informe ejecutivo", "dame un report", "crea un informe", "project report", "executive summary", "status del proyecto", "quiero presentar el proyecto". Do not let other PMM skills handle reporting requests — this skill owns all PMM reporting.
 ---
 
 # PMM Executive Reporter
