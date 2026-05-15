@@ -1,0 +1,5 @@
+{
+  "name": "pmm-executive-reporter",
+  "description": "Generate a visual HTML executive report for a ProjectMindMap project — health dashboard, risk matrix, milestone status, and open actions.",
+  "version": "1.0.0"
+}

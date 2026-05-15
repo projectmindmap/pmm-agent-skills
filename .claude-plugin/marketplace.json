@@ -1,0 +1,17 @@
+{
+  "name": "pmm-agent-skills",
+  "owner": {
+    "name": "ProjectMindMap",
+    "email": "hello@projectmindmap.com"
+  },
+  "plugins": [
+    {
+      "name": "pmm-risk-manager",
+      "source": "./risk-manager"
+    },
+    {
+      "name": "pmm-executive-reporter",
+      "source": "./executive-reporter"
+    }
+  ]
+}
