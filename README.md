@@ -12,6 +12,7 @@ Built following the [AgentSkills.io](https://agentskills.io) open standard.
 |---|---|
 | [`risk-manager`](./risk-manager/) | Full PMI/PMBOK risk management audit — identify, qualify, quantify, plan responses, and monitor project risks |
 | [`executive-reporter`](./executive-reporter/) | Generate a visual HTML executive report with health dashboard, risk matrix, and milestone status |
+| [`pmm-pmi-auditor`](./pmm-pmi-auditor/) | PMBOK 7 compliance audit — evaluates all 10 knowledge areas against PMM data and submits a structured non-conformity report to the PMM inbox for human review. Runs automatically on each baseline update. |
 
 ---
 
@@ -76,14 +77,18 @@ These tools are available once you connect to PMM via MCP:
 
 | Tool | Mode | Description |
 |---|---|---|
+| Tool | Mode | Description |
+|---|---|---|
 | `list_projects` | Read | List PMM projects accessible to you |
 | `get_project_context` | Read | Compact project summary — health, baseline, counts, gaps |
 | `query_project_knowledge` | Read | Semantic search over indexed project documents |
+| `list_risks` | Read | Full risk register — category, severity, response strategy, mitigation status, triggers |
 | `validate_entity` | Read | Validate a stakeholder, risk, or scope item before submitting |
 | `submit_proposal` | Propose | Create a reviewable proposal (human must approve it) |
 | `get_proposal_status` | Read | Check the status of a submitted proposal |
 
-> `list_projects` and `list_risks` are being added in [PRO-142](https://linear.app/projectmindmap/issue/PRO-142) and [PRO-143](https://linear.app/projectmindmap/issue/PRO-143). Until then, find your `project_id` in the PMM project URL.
+> `list_projects` (PRO-142) and `list_risks` (PRO-143) are in progress. Until live, find your `project_id` in the PMM project URL.  
+> `audit_report` proposal kind required by `pmm-pmi-auditor` is tracked in PRO-182.
 
 ---
 
@@ -97,9 +102,15 @@ These tools are available once you connect to PMM via MCP:
 
 ## Roadmap
 
-- [ ] `risk-manager` v2 — real-time timeline risk detection (milestones + tasks dates via MCP)
+**In progress**
+- [ ] `pmm-stakeholder-manager` — identify, classify, and propose stakeholder engagement actions based on the PMM register
+- [ ] `pmm-prince2-auditor` — PRINCE2 2023 compliance audit, structured analogously to the PMI auditor
+
+**Planned**
+- [ ] `pmm-planner-manager` — schedule and WBS review (requires PRO-148: MCP task/milestone exposure)
+- [ ] `pmm-finance-controller` — budget and earned value analysis (requires MCP cost data expansion)
+- [ ] `risk-manager` v2 — real-time timeline risk detection (milestones + tasks via MCP)
 - [ ] `executive-reporter` v2 — generate report stored in PMM (PDF/HTML, shareable URL)
-- [ ] `scope-reviewer` — ontology gap analysis and scope completeness audit
 
 ---
 
