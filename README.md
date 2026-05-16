@@ -13,6 +13,7 @@ Built following the [AgentSkills.io](https://agentskills.io) open standard.
 | [`risk-manager`](./risk-manager/) | Full PMI/PMBOK risk management audit — identify, qualify, quantify, plan responses, and monitor project risks |
 | [`executive-reporter`](./executive-reporter/) | Generate a visual HTML executive report with health dashboard, risk matrix, and milestone status |
 | [`pmm-pmi-auditor`](./pmm-pmi-auditor/) | PMBOK 7 compliance audit — evaluates all 10 knowledge areas against PMM data and submits a structured non-conformity report to the PMM inbox for human review. Runs automatically on each baseline update. |
+| [`pmm-stakeholder-manager`](./pmm-stakeholder-manager/) | Identifies unregistered stakeholders from indexed emails and documents, classifies them using the Power/Interest matrix (PMBOK KA 13), and proposes each one individually to the PMM inbox. Generates an engagement plan for high-influence stakeholders. |
 
 ---
 
@@ -103,7 +104,6 @@ These tools are available once you connect to PMM via MCP:
 ## Roadmap
 
 **In progress**
-- [ ] `pmm-stakeholder-manager` — identify, classify, and propose stakeholder engagement actions based on the PMM register
 - [ ] `pmm-prince2-auditor` — PRINCE2 2023 compliance audit, structured analogously to the PMI auditor
 
 **Planned**
